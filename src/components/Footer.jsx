@@ -1,10 +1,10 @@
-import { FooterContainer, Copyrights } from "../styles/footer.css";
+import { FooterContainer, FooterCopyrights } from "../styles/footer.css";
 
 export default function Footer() {
     return (
         <>
             <FooterContainer>
-                <Copyrights>Ⓒ 2022 #VANLIFE</Copyrights>
+                <FooterCopyrights>Ⓒ 2022 #VANLIFE</FooterCopyrights>
             </FooterContainer>
         </>
     )

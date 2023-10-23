@@ -5,8 +5,9 @@ export const FooterContainer = styled.footer`
     justify-content: center;
     background-color: var(--clr-grey);
 `
-export const Copyrights = styled.p`
+export const FooterCopyrights = styled.p`
     color: var(--clr-white);
     font-size: var(--fs-normal);
     padding: 2em;
+    opacity: 0.9;
 `
