@@ -20,7 +20,13 @@ export const HeaderNavContainer = styled.div`
     align-items: center;
     gap: 4em;
     a.active {
-        border-bottom: 2px solid #707070;
+        &:after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--clr-black);
+        }
     }
 `
 export const HeaderNav = styled(NavLink)`

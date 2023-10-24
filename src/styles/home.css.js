@@ -24,14 +24,15 @@ export const HomeLink = styled(Link)`
     text-decoration: none;
     padding-top: 3em;
 `
-export const HomeButton = styled.div`
+export const HomeButton = styled(Link)`
     display: flex;
     justify-content: center;
-    color: var(--clr-white);
-    background-color: var(--clr-tertiary);
-    border: none;
-    border-radius: 0.2em;
-    padding: 1em 2em;
     font-size: var(--fs-medium);
     font-weight: var(--fw-bold);
+    text-decoration: none;
+    color: var(--clr-white);
+    background-color: var(--clr-tertiary);
+    border-radius: 0.2em;
+    padding: 1em 2em;
+    margin-top: 3em;
 `
