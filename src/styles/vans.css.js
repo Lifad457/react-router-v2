@@ -13,11 +13,10 @@ export const VansFiltersContainer = styled.div`
     display: flex;
 `
 const VansFilter = `
-    display: flex;
-    flex-direction: column;
+    display: inline-block;
     background-color: var(--clr-secondary);
     border-radius: 0.3em;
-    padding: .7em 3em;
+    padding: .7em 2em;
     margin-right: 2em;
     font-weight: var(--fw-semi-bold);
     cursor: pointer;
@@ -32,9 +31,11 @@ export const VansFilterRugged = styled.div`
     ${VansFilter}
 `
 export const VansFilterClear = styled.div`
+    display: inline-block;
     font-weight: var(--fw-semi-bold);
     cursor: pointer;
-    padding: .7em 0;
+    padding: .7em 2em;
+    min-width: 10em;
     &:after {
         content: "";
         display: block;
@@ -44,8 +45,8 @@ export const VansFilterClear = styled.div`
     }
 `
 export const VansListContainer = styled.div`
-    margin-top: 2em;
+    margin-top: 4em;
     display: grid;
-    grid-gap: 4em;
-    grid-template-columns: repeat(auto-fill, minmax(250, 250px));
+    grid-gap: 3em;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
 `

@@ -7,12 +7,15 @@ import About from './pages/About.jsx'
 import Vans from './pages/Vans.jsx'
 
 import "../server"
+import VanCardDetails from './components/VanCardDetails.jsx'
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/' element={<Layout />} >
       <Route index element={<Home />} />
       <Route path="about" element={<About />} />
-      <Route path="vans" element={<Vans />} />
+      <Route path="vans" element={<Vans />}>
+        <Route path=":vanId" element={<VanCardDetails />} />
+      </Route>
     </Route>
 ))
 

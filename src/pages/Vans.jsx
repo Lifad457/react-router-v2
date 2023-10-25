@@ -21,6 +21,8 @@ export default function Vans() {
         }, []
     )
 
+    const vanElements = vans.map(van => <VanCard key={van.id} van={van} />)
+
     return (
         <VansContainer>
             <VansTitle>Explore our van options</VansTitle>
@@ -31,8 +33,9 @@ export default function Vans() {
                 <VansFilterClear>Clear filters</VansFilterClear>
             </VansFiltersContainer>
             <VansListContainer>
-                {vans.map(van => <VanCard key={van.id} van={van} />)}
+                {vanElements}
             </VansListContainer>
         </VansContainer>
     )
 }
+
