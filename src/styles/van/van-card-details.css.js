@@ -5,6 +5,17 @@ export const VanCardDetailsContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding: 0 5em;
+    margin-bottom: 5em;
+
+    @media (min-width: 1200px) {
+        flex-direction: row;
+        gap: 5em;
+        align-items: flex-end;
+    }
+`
+export const VanCardDetailHero = styled.div`
+    display: flex;
+    flex-direction: column;
 `
 export const VanCardDetailsNav = styled(Link)`
     color: var(--clr-black);
@@ -26,6 +37,11 @@ export const VanCardDetailsNav = styled(Link)`
 export const VanCardDetailsImg = styled.img`
     border-radius: 0.5em;
     max-width: 700px;
+`
+export const VanCardDetailMain = styled.div`
+    @media (min-width: 1200px) {
+        width: 50%;
+    }
 `
 export const VanCardDetailsType = styled.div`
     display: inline-block;

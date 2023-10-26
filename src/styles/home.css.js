@@ -3,13 +3,22 @@ import styled from "styled-components";
 import HomeHero from "../assets/images/home-hero.png"
 
 export const HomeContainer = styled.div`
+    display: flex;
     background: url(${HomeHero});
     background-size: cover;
     background-repeat: no-repeat;
 
     @media (min-width: 1200px) {
-        max-width: 900px;
-        
+        background: unset;
+    }
+`
+export const HomeImg = styled.img`
+    display: none;
+
+    @media (min-width: 1200px) {
+        display: flex;
+        width: 50%;
+        object-fit: cover;
     }
 `
 export const HomeContent = styled.div`
@@ -17,6 +26,10 @@ export const HomeContent = styled.div`
     flex-direction: column;
     padding: 10em 5em;
     color: var(--clr-white);
+    @media (min-width: 1200px) {
+        color: var(--clr-black);
+        text-align: center;
+    }
 `
 export const HomeTitle = styled.h1`
     font-size: var(--fs-extra-large);

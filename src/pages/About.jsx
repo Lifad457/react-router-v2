@@ -4,14 +4,15 @@ import { AboutButtonContainer,
      AboutDesc,
      AboutHeroImg,
      AboutLink,
+     AboutMain,
      AboutTitle } from "../styles/about.css";
 import AboutHero from "../assets/images/about-hero.png";
 
 export default function About() {
     return (
-        <>
+        <AboutContainer>
             <AboutHeroImg src={AboutHero} alt="man starring at the sky by night on top of his van" />
-            <AboutContainer>
+            <AboutMain>
                 <AboutTitle>Don’t squeeze in a sedan when you could relax in a van.</AboutTitle>
                 <AboutDesc>
                     Our mission is to enliven your road trip with the perfect travel van rental. 
@@ -27,7 +28,7 @@ export default function About() {
                         Explore our vans
                     </AboutLink>
                 </AboutButtonContainer>
-            </AboutContainer>  
-        </> 
+            </AboutMain>  
+        </AboutContainer> 
     )
 }

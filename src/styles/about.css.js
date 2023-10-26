@@ -1,11 +1,22 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+export const AboutContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    @media (min-width: 1200px) {
+        flex-direction: row;
+    }
+`
 export const AboutHeroImg = styled.img`
     width: 100%;
     object-fit: cover;
+    @media (min-width: 1200px) {
+        width: 50%;
+        padding: 0 5em;
+    }
 `
-export const AboutContainer = styled.div`
+export const AboutMain = styled.div`
     display: flex;
     flex-direction: column;
     padding: 5em 5em;
