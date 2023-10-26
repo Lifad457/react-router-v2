@@ -43,4 +43,5 @@ export const VanCardtype = styled.div`
     font-weight: var(--fw-semi-bold);
     border-radius: 0.3em;
     text-align: center;
+    letter-spacing: 0.05em;
 `

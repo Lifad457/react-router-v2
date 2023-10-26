@@ -1,15 +1,21 @@
 import { Link } from "react-router-dom";
-import HomeHero from "../assets/images/home-hero.png"
 import styled from "styled-components";
+import HomeHero from "../assets/images/home-hero.png"
 
 export const HomeContainer = styled.div`
+    background: url(${HomeHero});
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @media (min-width: 1200px) {
+        max-width: 900px;
+        
+    }
+`
+export const HomeContent = styled.div`
     display: flex;
     flex-direction: column;
     padding: 10em 5em;
-    background-color: var(--clr-secondary);
-    background-image: url(${HomeHero});
-    background-size: cover;
-    background-repeat: no-repeat;
     color: var(--clr-white);
 `
 export const HomeTitle = styled.h1`
@@ -19,10 +25,6 @@ export const HomeTitle = styled.h1`
 export const HomeDesc = styled.p`
     font-size: var(--fs-medium);
     font-weight: var(--fw-semi-bold);
-`
-export const HomeLink = styled(Link)`
-    text-decoration: none;
-    padding-top: 3em;
 `
 export const HomeButton = styled(Link)`
     display: flex;

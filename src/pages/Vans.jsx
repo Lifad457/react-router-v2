@@ -10,7 +10,7 @@ import { VansContainer,
      VansTitle } from '../styles/vans.css';
 
 export default function Vans() {
-    const [vans, setVans] = useState([{}])
+    const [vans, setVans] = useState([])
 
     useEffect(() => 
         {
@@ -21,7 +21,7 @@ export default function Vans() {
         }, []
     )
 
-    const vanElements = vans.map(van => <VanCard key={van.id} van={van} />)
+    const vanCards = vans.map(van => <VanCard key={van.id} van={van} />)
 
     return (
         <VansContainer>
@@ -33,7 +33,7 @@ export default function Vans() {
                 <VansFilterClear>Clear filters</VansFilterClear>
             </VansFiltersContainer>
             <VansListContainer>
-                {vanElements}
+                {vanCards ? vanCards : "Loading..."}
             </VansListContainer>
         </VansContainer>
     )

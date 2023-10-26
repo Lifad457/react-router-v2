@@ -7,14 +7,17 @@ import PropTypes from 'prop-types';
 
 export default function VanCard({ van }) { 
     return (
-        <VanCardContainer to={van.id}>
-            <VanCardImg src={van.imageUrl} alt={van.name} />
-            <VanCardName>{van.name}</VanCardName>
-            <VanCardPrice>${van.price}<br/><em>/day</em></VanCardPrice>
-            {van.type &&
-                <VanCardtype type={van.type}>
-                    {van.type.charAt(0).toUpperCase()}{van.type.substr(1).toLowerCase()}
-                </VanCardtype>
+        <VanCardContainer to={van.id} >
+            {van.id ?
+                <>
+                    <VanCardImg src={van.imageUrl} alt={van.name} />
+                    <VanCardName>{van.name}</VanCardName>
+                    <VanCardPrice>${van.price}<br/><em>/day</em></VanCardPrice>
+                    <VanCardtype type={van.type}>
+                        {van.type.charAt(0).toUpperCase()}{van.type.substr(1).toLowerCase()}
+                    </VanCardtype>
+                </>     
+                : "Loading..."
             }
         </VanCardContainer>
     )
