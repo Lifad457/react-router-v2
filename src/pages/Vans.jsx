@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import VanCard from '../components/VanCard';
+import VanCard from '../components/vans/VanCard';
 import { VansContainer,
      VansFilterClear,
      VansFilterLuxury,

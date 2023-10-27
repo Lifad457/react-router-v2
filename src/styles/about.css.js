@@ -4,16 +4,19 @@ import styled from "styled-components";
 export const AboutContainer = styled.div`
     display: flex;
     flex-direction: column;
+    margin-bottom: 2em;
+    
     @media (min-width: 1200px) {
         flex-direction: row;
     }
 `
 export const AboutHeroImg = styled.img`
-    width: 100%;
     object-fit: cover;
+
     @media (min-width: 1200px) {
         width: 50%;
         padding: 0 5em;
+        border-radius: 0.3em;
     }
 `
 export const AboutMain = styled.div`

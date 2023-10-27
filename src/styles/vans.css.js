@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const VansContainer = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 5em;
+    padding: 0 5em 5em 5em;
 `
 export const VansTitle = styled.h1`
     font-size: var(--fs-extra-large);

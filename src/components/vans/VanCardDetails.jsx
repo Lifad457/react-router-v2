@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { VanCardDetailHero, VanCardDetailMain, VanCardDetailsContainer, VanCardDetailsDesc, VanCardDetailsImg, VanCardDetailsName, VanCardDetailsNav, VanCardDetailsPrice, VanCardDetailsRent, VanCardDetailsType } from "../styles/van/van-card-details.css";
+import { VanCardDetailHero, VanCardDetailMain, VanCardDetailsContainer, VanCardDetailsDesc, VanCardDetailsImg, VanCardDetailsName, VanCardDetailsNav, VanCardDetailsPrice, VanCardDetailsRent, VanCardDetailsType } from "../../styles/vans/van-card-details.css";
 
 export default function VanCardDetails() {
     const [van, setVan] = useState()

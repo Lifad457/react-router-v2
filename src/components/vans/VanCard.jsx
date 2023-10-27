@@ -2,7 +2,7 @@ import { VanCardContainer,
      VanCardImg,
      VanCardName,
      VanCardPrice,
-     VanCardtype } from "../styles/van/van-card.css";
+     VanCardtype } from "../../styles/vans/van-card.css";
 import PropTypes from 'prop-types';
 
 export default function VanCard({ van }) { 

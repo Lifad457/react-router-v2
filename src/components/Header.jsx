@@ -6,6 +6,7 @@ export default function Header() {
             <HeaderContainer>
                 <HeaderLogo to="/" $end>#VANLIFE</HeaderLogo>
                 <HeaderNavContainer>
+                    <HeaderNav to="/host">Host</HeaderNav>
                     <HeaderNav to="/about">About</HeaderNav>
                     <HeaderNav to="/vans">Vans</HeaderNav>
                 </HeaderNavContainer>
