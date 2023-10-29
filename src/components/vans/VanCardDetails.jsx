@@ -21,7 +21,7 @@ export default function VanCardDetails() {
                 van ?
                 <>
                     <VanCardDetailHero>
-                        <VanCardDetailsNav to="/vans">↩ Back to all vans</VanCardDetailsNav>
+                        <VanCardDetailsNav to=".." relative="path">↩ Back to all vans</VanCardDetailsNav>
                         <VanCardDetailsImg src={van.imageUrl} alt={van.name} />
                     </VanCardDetailHero>
                     <VanCardDetailMain>

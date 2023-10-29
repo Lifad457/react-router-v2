@@ -7,6 +7,7 @@ export default function Layout() {
             <LayoutNavContainer>
                 <LayoutNavLink to="/host" end>Dashboard</LayoutNavLink>
                 <LayoutNavLink to="/host/income">Income</LayoutNavLink>
+                <LayoutNavLink to="/host/vans">Vans</LayoutNavLink>
                 <LayoutNavLink to="/host/reviews">Reviews</LayoutNavLink>
             </LayoutNavContainer>
             <Outlet />
