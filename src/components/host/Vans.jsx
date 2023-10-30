@@ -11,7 +11,7 @@ export default function Vans() {
     }, [])
 
     const vansElements = vans.map(van => 
-        <VanContainer to={`${van.id}`} key={van.id}>
+        <VanContainer to={van.id} key={van.id}>
             <VansElementsImg src={van.imageUrl} alt={van.name} />
             <VansElementsTitle>{van.name}</VansElementsTitle>
             <VansElementsPrice>${van.price}/day</VansElementsPrice>

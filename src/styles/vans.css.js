@@ -14,7 +14,6 @@ export const VansFiltersContainer = styled.div`
 `
 const VansFilter = `
     display: inline-block;
-    background-color: var(--clr-secondary);
     border-radius: 0.3em;
     padding: .7em 2em;
     margin-right: 2em;
@@ -23,12 +22,18 @@ const VansFilter = `
 `
 export const VansFilterSimple = styled.div`
     ${VansFilter}
+    background-color: var(--clr-${props => props.type || "secondary"});
+    color: var(--clr-${props => props.type ? "white" : "black"});
 `
 export const VansFilterLuxury = styled.div`
     ${VansFilter}
+    background-color: var(--clr-${props => props.type || "secondary"});
+    color: var(--clr-${props => props.type ? "white" : "black"});
 `
 export const VansFilterRugged = styled.div`
     ${VansFilter}
+    background-color: var(--clr-${props => props.type || "secondary"});
+    color: var(--clr-${props => props.type ? "white" : "black"});
 `
 export const VansFilterClear = styled.div`
     display: inline-block;
