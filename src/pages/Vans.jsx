@@ -10,7 +10,6 @@ import { VansContainer,
      VansListContainer,
      VansTitle } from '../styles/vans.css';
 import { getVans } from '../../api';
-import ErrorPage from './ErrorPage';
 
 export default function Vans() {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -58,7 +57,7 @@ export default function Vans() {
     }
 
     if (loading) {return <h1>Loading...</h1>}
-    if (error) {return <ErrorPage error={error} />}
+    if (error) return <h1 style={{padding: "3em", color: "red"}}>There was an error: {error.message}</h1>
     
     return (
         <VansContainer>
