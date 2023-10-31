@@ -1,12 +1,21 @@
 import { useState, useEffect } from "react";
-import { useParams, useLocation } from "react-router-dom";
-import { VanCardDetailHero, VanCardDetailMain, VanCardDetailsContainer, VanCardDetailsDesc, VanCardDetailsImg, VanCardDetailsName, VanCardDetailsNav, VanCardDetailsPrice, VanCardDetailsRent, VanCardDetailsType } from "../../styles/vans/van-card-details.css";
+import { useLocation, useParams } from "react-router-dom";
+import { VanCardDetailHero,
+     VanCardDetailMain,
+     VanCardDetailsContainer,
+     VanCardDetailsDesc,
+     VanCardDetailsImg,
+     VanCardDetailsName,
+      VanCardDetailsNav,
+      VanCardDetailsPrice,
+      VanCardDetailsRent,
+      VanCardDetailsType } from "../../styles/vans/van-card-details.css";
 
 export default function VanCardDetails() {
     const [van, setVan] = useState()
     const {vanId} = useParams()
-    const location = useLocation()
-    
+    const {search} = useLocation()
+
     useEffect(() => 
         {
             fetch(`/api/vans/${vanId}`)
@@ -22,7 +31,9 @@ export default function VanCardDetails() {
                 van ?
                 <>
                     <VanCardDetailHero>
-                        <VanCardDetailsNav to=".." relative="path">↩ Back to all vans</VanCardDetailsNav>
+                        <VanCardDetailsNav to={".."+search} relative="path" >
+                            ↩ <span>{`Back to ${search ? van.type : "all"} vans`}</span>
+                        </VanCardDetailsNav>
                         <VanCardDetailsImg src={van.imageUrl} alt={van.name} />
                     </VanCardDetailHero>
                     <VanCardDetailMain>

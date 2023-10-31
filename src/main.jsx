@@ -16,6 +16,7 @@ import HostVanDetails from './components/host/VanDetails'
 import Details from './components/host/van-details-nav/Details'
 import Pricing from './components/host/van-details-nav/Pricing'
 import Photos from './components/host/van-details-nav/Photos'
+import ErrorPage from './pages/ErrorPage'
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/' element={<Layout />} >
@@ -35,7 +36,7 @@ const router = createBrowserRouter(createRoutesFromElements(
         </Route>
       </Route>
       
-      <Route path="*" element={<h1>Not Found</h1>} />
+      <Route path="*" element={<ErrorPage />} />
     </Route>
 ))
 

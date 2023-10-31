@@ -23,15 +23,11 @@ export const VanCardDetailsNav = styled(Link)`
     font-weight: var(--fw-semi-bold);
     letter-spacing: 0.05em;
     text-decoration: none;
-    position: relative;
 
-    &::after {
-        content: '';
-        display: block;
-        position: absolute;
-        width: 132px;
+    span {
+        width: fit-content;
         border-bottom: 2px solid var(--clr-black); 
-        left: 20px;
+        padding-bottom: 3px;
     }
 `
 export const VanCardDetailsImg = styled.img`

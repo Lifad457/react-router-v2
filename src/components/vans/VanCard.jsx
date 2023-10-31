@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import { VanCardContainer,
      VanCardImg,
      VanCardName,
@@ -6,8 +7,10 @@ import { VanCardContainer,
 import PropTypes from 'prop-types';
 
 export default function VanCard({ van }) { 
+    const {search} = useLocation()
+
     return (
-        <VanCardContainer to={van.id} >
+        <VanCardContainer to={van.id+search} >
             {van.id ?
                 <>
                     <VanCardImg src={van.imageUrl} alt={van.name} />

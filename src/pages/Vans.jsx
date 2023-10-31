@@ -9,21 +9,35 @@ import { VansContainer,
      VansFiltersContainer,
      VansListContainer,
      VansTitle } from '../styles/vans.css';
+import { getVans } from '../../api';
+import ErrorPage from './ErrorPage';
 
 export default function Vans() {
     const [searchParams, setSearchParams] = useSearchParams();
     const typeFilter = searchParams.get("type");
 
     const [vans, setVans] = useState([])
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
     useEffect(() => 
         {
-            fetch("/api/vans")
-            .then((response) => response.json())
-            .then((data) => setVans(data.vans))
-            .catch((error) => console.error("Error fetching data: ", error));
+            async function fetchVans() {
+                setLoading(true)
+                try {
+                    const data = await getVans()
+                    setVans(data)
+                }
+                catch (err) {
+                   setError(err)
+                }
+                finally {
+                    setLoading(false)
+                }
+            }
+
+            fetchVans()
         }, []
     )
-    
     const filteredVans = typeFilter ? vans.filter(van => van.type === typeFilter) : vans;
     const vanCards = filteredVans.map(van => <VanCard key={van.id} van={van} />)
 
@@ -43,6 +57,9 @@ export default function Vans() {
         })
     }
 
+    if (loading) {return <h1>Loading...</h1>}
+    if (error) {return <ErrorPage error={error} />}
+    
     return (
         <VansContainer>
             <VansTitle>Explore our van options</VansTitle>
