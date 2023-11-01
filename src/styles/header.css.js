@@ -33,3 +33,7 @@ export const HeaderNav = styled(NavLink)`
     font-weight: var(--fw-semi-bold);
     font-size: var(--fs-medium);
 `
+export const HeaderIcon = styled.img`
+    display: flex;
+    align-items: center;
+`

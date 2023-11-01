@@ -10,21 +10,39 @@ import { VanCardDetailHero,
       VanCardDetailsPrice,
       VanCardDetailsRent,
       VanCardDetailsType } from "../../styles/vans/van-card-details.css";
+import { getVans } from "../../../api";
 
 export default function VanCardDetails() {
     const [van, setVan] = useState()
     const {vanId} = useParams()
     const {search} = useLocation()
 
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
     useEffect(() => 
         {
-            fetch(`/api/vans/${vanId}`)
-            .then((response) => response.json())
-            .then((data) => setVan(data.vans))
-            .catch((error) => console.error("Error fetching data: ", error));
+            console.log(vanId)
+            async function fetchVan() {
+                setLoading(true)
+                try {
+                    const data = await getVans(vanId)
+                    setVan(data)
+                }
+                catch (err) {
+                   setError(err)
+                }
+                finally {
+                    setLoading(false)
+                }
+            }
+
+            fetchVan()
         }, [vanId]
     )
 
+    if (loading) {return <h1>Loading...</h1>}
+    if (error) return <h1 style={{padding: "3em", color: "red"}}>There was an error: {error.message}</h1>
+    
     return (
         <VanCardDetailsContainer>
             {

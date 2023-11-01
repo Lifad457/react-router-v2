@@ -17,22 +17,27 @@ import Details from './components/host/van-details-nav/Details'
 import Pricing from './components/host/van-details-nav/Pricing'
 import Photos from './components/host/van-details-nav/Photos'
 import ErrorPage from './pages/ErrorPage'
+import Login from './pages/Login'
+import AuthRequired from './components/AuthRequired'
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/' element={<Layout />} >
       <Route index element={<Home />} />
+      <Route path="login" element={<Login />} />
       <Route path="about" element={<About />} />
       <Route path="vans" element={<Vans />} />
       <Route path="vans/:vanId" element={<VanCardDetails />} />
-      <Route path="host" element={<HostLayout />} >
-        <Route index element={<Dashboard />} />
-        <Route path="income" element={<Income />} />
-        <Route path="reviews" element={<Reviews />} />
-        <Route path="vans" element={<HostVans />} />
-        <Route path="vans/:vanId" element={<HostVanDetails />}>
-          <Route index element={<Details />} />
-          <Route path="pricing" element={<Pricing />} />
-          <Route path="photos" element={<Photos />} />
+      <Route element={<AuthRequired />} >
+        <Route path="host" element={<HostLayout />} >
+          <Route index element={<Dashboard />} />
+          <Route path="income" element={<Income />} />
+          <Route path="reviews" element={<Reviews />} />
+          <Route path="vans" element={<HostVans />} />
+          <Route path="vans/:vanId" element={<HostVanDetails />}>
+            <Route index element={<Details />} />
+            <Route path="pricing" element={<Pricing />} />
+            <Route path="photos" element={<Photos />} />
+          </Route>
         </Route>
       </Route>
       

@@ -12,17 +12,34 @@ import {
     VanDetailsPrice, 
     VanDetailsType, 
     VanDetailsWrapper} from '../../styles/host/van-details.css';
+import { getHostVans } from '../../../api';
 
 export default function VanDetails() {
     const { vanId } = useParams();
     const [van, setVan] = useState();
 
-    useEffect(() => {     
-        fetch(`/api/host/vans/${vanId}`)
-        .then((response) => response.json())
-        .then((data) => setVan(data.vans[0]))
-        .catch((error) => console.error("Error fetching data: ", error));
-    }, [vanId]);
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
+    useEffect(() => {
+        async function fetchVan() {
+            setLoading(true)
+            try {
+                const data = await getHostVans(vanId)
+                setVan(data[0])
+            }
+            catch (err) {
+               setError(err)
+            }
+            finally {
+                setLoading(false)
+            }
+        }
+
+        fetchVan()
+    }, [vanId])
+
+    if (loading) {return <h1>Loading...</h1>}
+    if (error) return <h1 style={{padding: "3em", color: "red"}}>There was an error: {error.message}</h1>
 
     return (
         <VanDetailsContainer>

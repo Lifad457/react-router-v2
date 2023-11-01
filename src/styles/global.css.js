@@ -32,6 +32,7 @@ const GlobalStyle = createGlobalStyle`
         --clr-white: #FFFFFF;
         --clr-black: #000000;
         --clr-grey: #252525;
+        --clr-alert: #f00;
     }
 
     html, body {
