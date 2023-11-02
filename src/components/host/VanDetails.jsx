@@ -12,7 +12,7 @@ import {
     VanDetailsPrice, 
     VanDetailsType, 
     VanDetailsWrapper} from '../../styles/host/van-details.css';
-import { getHostVans } from '../../../api';
+import { getHostVan } from '../../../api';
 
 export default function VanDetails() {
     const { vanId } = useParams();
@@ -24,8 +24,8 @@ export default function VanDetails() {
         async function fetchVan() {
             setLoading(true)
             try {
-                const data = await getHostVans(vanId)
-                setVan(data[0])
+                const data = await getHostVan(vanId)
+                setVan(data)
             }
             catch (err) {
                setError(err)
@@ -43,7 +43,7 @@ export default function VanDetails() {
 
     return (
         <VanDetailsContainer>
-            <VanDetailsBackNav to=".." relative='path'>↩ Back to all vans</VanDetailsBackNav>
+            <VanDetailsBackNav to="/host/vans">↩ Back to all vans</VanDetailsBackNav>
             {van ? (
                 <VanDetailsWrapper>
                     <VanDetailsInfo>

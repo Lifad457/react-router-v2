@@ -10,7 +10,7 @@ import { VanCardDetailHero,
       VanCardDetailsPrice,
       VanCardDetailsRent,
       VanCardDetailsType } from "../../styles/vans/van-card-details.css";
-import { getVans } from "../../../api";
+import { getVan } from "../../../api";
 
 export default function VanCardDetails() {
     const [van, setVan] = useState()
@@ -25,7 +25,7 @@ export default function VanCardDetails() {
             async function fetchVan() {
                 setLoading(true)
                 try {
-                    const data = await getVans(vanId)
+                    const data = await getVan(vanId)
                     setVan(data)
                 }
                 catch (err) {
