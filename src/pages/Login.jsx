@@ -1,15 +1,32 @@
 import { LoginContainer, LoginForm } from "../styles/login.css"
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { login } from "../../api"
 
 export default function Login() {
     const [loginFormData, setLoginFormData] = useState({ email: "", password: "" })
     const location = useLocation()
+    const navigate = useNavigate()
+    const [status, setStatus] = useState("idle")
+    const [error, setError] = useState(null)
+    const from = location.state?.from || "/host"
     
     function handleSubmit(e) {
         e.preventDefault()
-        handleLogin()
+        setStatus("submitting")
+        login(loginFormData)
+            .then(data => {
+                setError(null)
+                localStorage.setItem("loggedin", true)
+                navigate(from, { replace: true })
+            })
+            .catch (err => {
+                localStorage.removeItem("loggedin")
+                setError(err)
+            })
+            .finally (() => {
+                setStatus("idle")
+            })
     }
 
     function handleChange(e) {
@@ -20,27 +37,11 @@ export default function Login() {
         }))
     }
 
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(null)
-    async function handleLogin() {
-        setLoading(true)
-        try {
-            const data = await login(loginFormData.email, loginFormData.password)
-            console.log(data)
-        }
-        catch (err) {
-            setError(err)
-        }
-        setLoading(false)
-    }
-    
-    if (loading) {return <h1>Loading...</h1>}
-    if (error) return <h1 style={{padding: "3em", color: "red"}}>There was an error: {error.message}</h1>
-    
     return (
         <LoginContainer>
             {location.state?.message && <h3>{location.state.message}</h3>}
             <h1>Sign in to your account</h1>
+            {error?.message && <h3 style={{color: "red"}}>{error.message}</h3>}
             <LoginForm onSubmit={handleSubmit}>
                 <input
                     name="email"
@@ -56,7 +57,9 @@ export default function Login() {
                     placeholder="Password"
                     value={loginFormData.password}
                 />
-                <button>Log in</button>
+                <button disabled={status==="submitting"}>
+                    {status === "submitting" ? "Logging in..." : "Log in" }
+                </button>
             </LoginForm>
         </LoginContainer>
     )

@@ -26,21 +26,21 @@ export async function getHostVans(vanId) {
     return data.vans;
 }
 
-export async function login(email, password) {
+export async function login(creds) {
     const response = await fetch("/api/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify(creds)
     })
+    const data = await response.json();
     if (!response.ok) {
         throw {
-            message: "Failed to login", 
+            message: data.message, 
             statusText: response.statusText,
             status: response.status
         }
     }
-    const data = await response.json();
     return data;
 }
